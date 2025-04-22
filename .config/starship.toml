@@ -1,5 +1,13 @@
 add_newline = false
 
 [character]
-error_symbol = "[](bold red)"
-success_symbol = "[](bold green)"
+error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"
+
+[shlvl]
+disabled = false
+format = "[$symbol]($style) "
+repeat = true
+symbol = "❯"
+repeat_offset = 1
+threshold = 0

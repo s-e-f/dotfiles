@@ -90,7 +90,8 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='eza'
+alias l='eza -lba --smart-group --git --icons --no-permissions --no-time'
+alias lt='l --tree --git-ignore --total-size'
 alias bat='batcat'
 alias v='nvim'
 
@@ -126,3 +127,4 @@ export PATH="$PATH:/home/sef/.local/bin"
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+eval "$(fzf --bash)"

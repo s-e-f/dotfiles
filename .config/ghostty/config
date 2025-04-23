@@ -2,7 +2,7 @@ background-opacity = 0.9
 background-blur-radius = 20
 
 font-family = FiraCode Nerd Font
-window-decoration = false
+window-decoration = true
 confirm-close-surface = false
 
 adjust-cell-height = 35%

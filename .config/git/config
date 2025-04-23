@@ -1,0 +1,12 @@
+[credential]
+    credentialStore = cache
+    helper =
+    helper = /usr/local/bin/git-credential-manager
+[credential "https://dev.azure.com"]
+    useHttpPath = true
+[user]
+    email = 39380372+s-e-f@users.noreply.github.com
+    name = Sef
+[alias]
+    st = status -sb
+    lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit

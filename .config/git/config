@@ -29,3 +29,8 @@
     email = 39380372+s-e-f@users.noreply.github.com
     name = Sef
     signingkey = ~/.ssh/id_ed25519.pub
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

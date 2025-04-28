@@ -52,6 +52,12 @@ vim.g.markdown_fenced_languages = {
 	"ts=typescript",
 }
 
+vim.filetype.add({
+  pattern = {
+    [".*%.blade%.php"] = "blade",
+  },
+})
+
 require("lazy").setup({
 	spec = {
 		{
@@ -245,6 +251,15 @@ require("lazy").setup({
 			build = ":TSUpdate",
 			config = function()
 				local configs = require("nvim-treesitter.configs")
+        local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+        parser_configs.blade = {
+          install_info = {
+            url = "https://github.com/EmranMR/tree-sitter-blade",
+            files = { "src/parser.c" },
+            branch = "main",
+          },
+          filetype = "blade",
+        }
 				configs.setup({
 					ensure_installed = {
 						-- Programming languages
@@ -362,6 +377,7 @@ require("lazy").setup({
 				lspconfig.ts_ls.setup({})
 				lspconfig.denols.setup({})
 				lspconfig.svelte.setup({})
+				lspconfig.intelephense.setup({})
 			end,
 		},
 	},

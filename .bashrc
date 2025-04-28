@@ -114,7 +114,9 @@ fi
 export PATH="$PATH:/usr/share/dotnet"
 export PATH="$PATH:~/.dotnet/tools"
 export DOTNET_ROOT="/usr/share/dotnet"
-export PATH="$PATH:/home/sef/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 . "$HOME/.cargo/env"
 
 eval "$(zoxide init bash)"

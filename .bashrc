@@ -31,6 +31,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 export PAGER="bat"
+export EDITOR="nvim"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -87,7 +88,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -113,12 +114,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$PATH:/usr/share/dotnet"
-export PATH="$PATH:~/.dotnet/tools"
-export DOTNET_ROOT="/usr/share/dotnet"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export DOTNET_ROOT="$HOME/dotnet"
+export PATH="$PATH:$DOTNET_ROOT"
+export PATH="$PATH:$DOTNET_ROOT/tools"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.zig/bin"
 . "$HOME/.cargo/env"
 
 eval "$(zoxide init bash)"

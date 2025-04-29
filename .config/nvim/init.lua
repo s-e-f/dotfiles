@@ -61,13 +61,16 @@ vim.filetype.add({
 require("lazy").setup({
 	spec = {
 		{
-			"vague2k/vague.nvim",
+      -- TODO: Integrations with other plugins: https://github.com/catppuccin/nvim?tab=readme-ov-file#integrations
+			"catppuccin/nvim",
+      name = "catppuccin",
 			priority = 1000,
 			config = function()
-				require("vague").setup({
-					transparent = true,
+				require("catppuccin").setup({
+          flavour = "mocha",
+					transparent_background = true,
 				})
-				vim.cmd([[colorscheme vague]])
+				vim.cmd([[colorscheme catppuccin]])
 			end,
 		},
 		{
@@ -378,6 +381,8 @@ require("lazy").setup({
 				lspconfig.denols.setup({})
 				lspconfig.svelte.setup({})
 				lspconfig.intelephense.setup({})
+        lspconfig.html.setup({})
+        lspconfig.pylsp.setup({})
 			end,
 		},
 	},
@@ -410,7 +415,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			client.stop()
 		end
 		local telescope = require("telescope.builtin")
-		vim.api.nvim_set_hl(0, "NormalFloat", { link = "CursorLine" })
+		-- vim.api.nvim_set_hl(0, "NormalFloat", { link = "CursorLine" })
 		vim.keymap.set("n", "gd", function()
 			telescope.lsp_definitions()
 		end, { silent = true })

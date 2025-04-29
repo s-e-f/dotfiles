@@ -129,6 +129,10 @@ eval "$(starship init bash)"
 eval "$(fzf --bash)"
 eval "$(direnv hook bash)"
 
+if command -v podman >/dev/null 2>&1; then
+    source <(podman completion bash)
+fi
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

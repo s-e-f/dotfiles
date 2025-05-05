@@ -8,12 +8,18 @@
     cacheOptions = --timeout 21600
     helper = /usr/local/bin/git-credential-manager
     useHttpPath = true
+[core]
+    repositoryFormatVersion = 1
+[extensions]
+    objectFormat = sha256
+    compatObjectFormat = sha1
 [gpg]
     format = ssh
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
 [init]
     defaultBranch = main
+    defaultObjectFormat = sha256
 [merge]
     conflictStyle = diff3
 [pull]

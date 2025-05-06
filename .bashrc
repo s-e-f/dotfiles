@@ -30,7 +30,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-export PAGER="bat"
+export TERM="xterm-256color"
 export EDITOR="nvim"
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -124,6 +124,10 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.zig/bin"
 . "$HOME/.cargo/env"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
@@ -133,6 +137,14 @@ if command -v podman >/dev/null 2>&1; then
     source <(podman completion bash)
 fi
 
+# nvm
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac

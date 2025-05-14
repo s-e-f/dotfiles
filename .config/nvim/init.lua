@@ -383,6 +383,9 @@ require("lazy").setup({
 				lspconfig.intelephense.setup({})
         lspconfig.html.setup({})
         lspconfig.pylsp.setup({})
+        lspconfig.bicep.setup({
+          cmd = { "bicep-lsp" }
+        })
 			end,
 		},
 	},

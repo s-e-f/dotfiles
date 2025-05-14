@@ -30,7 +30,7 @@
     showUntrackedFiles = all
     relativePaths = false
 [tag]
-    gngsign = true
+    gpgsign = true
 [user]
     email = 39380372+s-e-f@users.noreply.github.com
     name = Sef
